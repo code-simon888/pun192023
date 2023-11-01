@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>切版作業-FruOats</title>
+  <style>
+    /* css reset */
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    /* common-background-color */
+    body {
+      background-color: #ec6d4e;
+    }
+    /* header */
+    .head-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0px;
+      background-color: #ec6d4e;
+      /* position: relative; */
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .head-logo {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+    .head-logo a {
+      display: inline-block;
+      text-decoration: none;
+      margin: auto;
+    }
+    .head-logo img {
+      display: block;
+      width: 100%;
+    }
+    .head-nav {
+      display: flex;
+      padding-left: 40px;
+    }
+    .head-nav li {
+      margin-right: 16px;
+    }
+    .head-nav li a {
+      display: flex;
+      text-decoration: none;
+      color: #fff;
+    }
+    .head-nav li span {
+      opacity: 0.4;
+    }
+    .head-login {
+      display: flex;
+      align-items: center;
+    }
+    .head-login > li {
+      margin-right: 25px;
+    }
+    .head-login li a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .head-login .cart {
+      width: 32px;
+      height: 32px;
+      padding: 5px 8px;
+      background-color: #fff;
+      border-radius: 20px;
+      position: relative;
+    }
+    .head-login .cart img {
+      width: 100%;
+    }
+    .head-login .cart span {
+      position: absolute;
+      top: -15px;
+      left: 28px;      
+      background-color: #b85037;
+      padding: 5px 8px;
+      border-radius: 25px;
+      color: #fff;
+    }
+    /* banner-AD */
+    .banner-container {
+      width: 100%;
+      height: 680px;
+      padding-bottom: 50px;
+      margin-top: 122px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .banner-wrap {
+      width: 100%;
+    }
+    .banner-text {
+      width: 30%;
+      height: 600px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 2;
+    }
+    .banner-text span {
+      position: absolute;
+      left: 0px;
+      bottom: 80px;
+      color: #fff;
+      opacity: 0.6;
+      transform: rotate(90deg);
+    }
+    .banner-pic {
+      position: absolute;
+      width: 70%;
+      top: 0;
+      left: 30%;
+    }
+    .banner-list {
+      display: flex;
+    }
+    .banner-list li {
+      width: 400px;
+      height: 680px;
+      margin-right: 15px;
+    }
+    .banner-list-1 {
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-size: cover;
+    }
+    .banner-logo {
+      position: absolute;
+      width: 400px;
+      height: 140px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      z-index: 4;
+    }
+    .banner-logo-large {
+      display: block;
+      width: 100%;
+    } 
+    .banner-logo-small {
+      display: block;
+    }
+    .banner-roll {
+      width: 160px;
+      position: absolute;
+      bottom: -50px;
+      right: 30px;
+      z-index: 5;
+    }
+    .banner-roll img {
+      display: block;
+      width: 100%;
+    }
+    /* about FruOats */
+    .about-container {
+      width: 100%;
+      padding: 0 40px 50px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .about-bg-pic {
+      width: 100%;
+      height: 800px;
+      background-position: center center;
+      background-size: cover;
+    }
+    .about-bg-pic h2 {
+      padding-top: 50px;
+      font-size: 13px;
+      line-height: 1;
+      text-align: center;
+      color: #ec6d4e;
+      margin-bottom: 150px;
+    }
+    .about-wrap {
+      width: 70%;
+      display: flex;
+      justify-content: center;
+    }
+    .about-text {
+      width: 400px;
+      background-color: #fff;
+      color: #ec6d4e;
+      padding: 50px 50px 0;
+      border-radius: 5px;
+    }
+    .about-text h3 {
+      font-size: 28px;
+      line-height: 1;
+      padding: 40px 0;
+    }
+    .about-text p{
+      padding-bottom: 40px;
+      font-size: 14px;
+      line-height: 2.5;
+    }
+    /* banner-large */
+    .large-container {
+      padding-bottom: 150px;
+      width: 100%;
+      height: 600px;
+      background-position: center center;
+      background-size: cover;
+      position: relative;
+      z-index: -1;
+    }
+    .large-container p {
+      width: 100%;
+      font-size: 100px;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+    }
+    /* feature */
+    .feature-container {
+      width: 100%;
+      margin: 150px 0;
+    }
+    .feature-container h2 {
+      font-size: 13px;
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .feature-list {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-items {
+      display: flex;
+      justify-content: center;
+    }
+    .item {
+      width: 33%;
+      margin: 0 3px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .item::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: -25px;
+        left: 20px;
+        font-size: 80px;
+        line-height: 1;
+        color: #fff;
+        z-index: 2;
+    }
+    .item:nth-child(1)::before{
+      content: "1";
+    }
+    .item:nth-child(2)::before{
+      content: "2";
+    }
+    .item:nth-child(3)::before{
+      content: "3";
+    }
+    .item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .item .text {
+      background-color: #fff;
+      padding: 12px;
+      flex-grow: 1;
+    }
+    .item .text h3 {
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      color: #ec6d4e;
+      padding: 10px 0;
+    }
+    .item .text p {
+      font-size: 14px;
+      padding: 0 25px;
+      margin-bottom: 15px;
+    }
+    /* story/promise */
+    .story-container {
+      width: 100%;
+      margin-bottom: 150px;
+      
+    }
+    .story-bg {
+      width: 100%;
+      background-position: center center;
+      background-size: cover;
+      position: relative;
+    }
+    .story-bg h2 {
+      padding-top: 50px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1;
+      color: #fff;
+    }
+    .story-wrap {
+      position: relative;
+      width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      position: relative;
+    }
+    .story-text {
+      width: 45%;
+      padding-right: 70px;
+      box-sizing: border-box;
+      align-self: center;
+    }
+    .story-text h3 {
+      font-size: 32px;
+      line-height: 1.5;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+    .story-text p {
+      font-size: 18px;
+      line-height: 2;
+      letter-spacing: 0.5px;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+    .story-button {
+      width: 70%;
+      border-radius: 28px;
+      text-align: center;
+      background-color: #fff;
+    }
+    .story-button a {
+      display: block;
+      text-decoration: none;
+      color: #ec6d4e;
+      font-size: 18px;
+      line-height: 1;
+      padding: 25px 0; 
+    }
+    .story-pic {
+      width: 50%;
+      position: relative;
+      top: 80px;
+      left: 60px;
+      z-index: 3;
+    }
+    .story-pic img {
+      display: block;
+      width: 100%;
+    }
+    .story-slogan {
+      width: 100%;
+      font-size: 100px;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+    }
+    /* product */
+    .product-container {
+      width: 100%;
+      margin-bottom: 150px;
+    }
+    .product-title {
+      font-size: 13px;
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+      margin: 50px 0;
+    }
+    .product-wrap {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .product-special {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .product-pic {
+      width: 50%;
+      position: relative;
+    }
+    .product-pic::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url(./image/product-under-01.webp);
+      background-position: center center;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      transform: rotate(-15deg);
+    }
+    .product-pic::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url(./image/product-under-02.webp);
+      background-position: center center;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transform: rotate(15deg);
+    }
+    .product-pic img {
+      display: block;
+      width: 100%;
+      position: relative;
+      z-index: 3;
+    }
+    .product-text {
+      width: 50%;
+      padding: 50px 50px 150px ;
+      margin-left: 100px;
+      align-self: flex-start;
+      box-sizing: border-box;
+    }
+    .product-text .tag {
+      font-size: 16px;
+      line-height: 1;
+      color: #fff;
+      margin-top: 150px;
+    }
+    .product-text h3 {
+      font-size: 60px;
+      line-height: 2;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    .product-text h3 span {
+      font-size: 18px;
+      line-height: 1;
+      color: #fff;
+      margin-left: 15px;
+    }
+    .product-text .price {
+      font-size: 24px;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+    .price .tax {
+      font-size: 12px;
+      color: #fff;
+      opacity: 0.6;
+    }
+    .price .set {
+      margin-left: 20px;
+      font-size: 16px;
+    }
+    .product-text .btn {
+      width: 50%;
+      background-color: #fff;
+      border-radius: 25px;
+      text-align: center;
+    }
+    .product-text .btn a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 4;
+      color: #ec6d4e;
+      background-color: #fff;
+    }
+    .product-list {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+    .product-list a {
+      display: block;
+      width: 24%;
+      text-decoration: none;
+      padding: 0 5px;
+    }
+    .product-list .list-pic {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .product-list .list-pic img {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+    }
+    .product-list .list-text {
+      padding: 5px;
+      color: #fff;
+    }
+    .list-text h3 {
+      font-size: 14px;
+      line-height: 1.2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: auto;
+      margin-bottom: 10px;
+    }
+    .list-text h3::after{
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-image: url(./image/arrow-right_wh.svg);
+      background-position: center center;
+      background-size: cover;
+    }
+    .list-text p {
+      font-size: 18px;
+    }
+    .list-text span {
+      font-size: 11px;
+      opacity: 0.6;
+    }
+    .list-text p {
+      font-size: 18px;
+      line-height: 1;
+    }
+    .list-text .list-tax {
+      font-size: 11px;
+      line-height: 1;
+      opacity: 0.6;
+    }
+    .product-link {
+      text-align: end;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;     
+      margin-right: 10px; 
+    }
+    .product-link a {
+      display: block;
+      text-decoration: none;
+      font-size: 16px;
+      color: #fff;
+      margin-right: 10px;
+    }
+    .product-link span {
+      width: 20px;
+      height: 20px;
+      border-radius: 50px;
+      border:  1px solid #fff;
+    }
+    /* news */
+    .news-container {
+      width: 100%;
+      margin-bottom: 150px;
+    }
+    .news-container h2 {
+      font-size: 13px;
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+    }
+    .news-wrap {
+      width: 1200px;
+      margin: 50px auto;
+    }
+    .news-list {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      border-top: 1px solid rgba(255, 255,255, 0.6);
+    }
+    .news-list:nth-child(3) {
+      border-bottom: 1px solid rgba(255, 255,255, 0.6);
+    }
+    .news-list p {
+      font-size: 15px;
+      line-height: 1;
+      margin-right: 30px;
+    }
+    .news-headline {
+      font-size: 18px;
+      line-height: 5;
+    }
+    .news-link {
+      display: inline-block;
+      margin-left: auto;
+    }
+    .news-all {
+      text-align: end;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;     
+      margin: 50px 10px 0 0; 
+    }
+    .news-all a {
+      display: block;
+      text-decoration: none;
+      font-size: 16px;
+      color: #fff;
+      margin-right: 10px;
+    }
+    .news-all span {
+      width: 20px;
+      height: 20px;
+      border-radius: 50px;
+      border:  1px solid #fff;
+    }
+    /* shop */
+    .shop-container {
+      width: 100%;
+      margin-bottom: 150px;
+      position: relative;
+    }
+    .shop-wrap {
+      width: 1200px;
+      height: 680px;
+      background-image: url(./image/bg-shop.webp);
+      background-position: center center;
+      background-size: cover;
+      margin: 0 auto;
+      position: relative;
+      left: -100px;
+    }
+    .shop-text {
+      width: 400px;
+      background-color: #fff;
+      position: absolute;
+      top: 100px;
+      right: -200px;
+    }
+    .shop-title {
+      font-size: 13px;
+      line-height: 1;
+      color: #ec6d4e;
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 30px;
+    }
+    .shop-detail {
+      padding: 50px 30px;
+      background-color: #fff;
+      left: 180px;
+    }
+    .shop-detail h3 {
+      font-size: 18px;
+      line-height: 1;
+      color: #ec6d4e;
+      margin-bottom: 30px;
+    }
+    .shop-detail p {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .shop-btn {
+      width: 100%;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .shop-btn a {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 14px;
+      color: #fff;
+      line-height: 2;
+      background-color: #ec6d4e;
+      padding: 10px 50px;
+      border-radius: 25px;
+    }
+    /* media */
+    .media-container {
+      width: 100%;
+      margin-bottom: 150px;
+    }
+    .media-wrap {
+      width: 1200px;
+      padding: 30px 50px 50px;
+      margin: 0 auto;
+      background-color: #fff;
+    }
+    .media-title {
+      font-size: 13px;
+      line-height: 1;
+      color: #ec6d4e;
+      text-align: center;
+      margin: 50px 0;
+    }
+    .media-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .media-list a {
+      width: 240px;
+      display: block;
+      text-decoration: none;
+    }
+    .media-list a img {
+      display: block;
+      width: 100%;
+    }
+    /* magazine */
+    .mag-container {
+      width: 100%;
+      margin: 0 auto 150px;
+    }
+    .mag-title {
+      font-size: 40px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .mag-wrap {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .mag-list {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+    }
+    .mag-item {
+      width: 33%;
+      padding: 15px;
+      margin: 0 3px;
+      background-color: #fff;
+      box-sizing: border-box;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .mag-item a {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
+    .mag-pic {
+      width: 100%;
+    }
+    .mag-pic img {
+      display: block;
+      width: 100%;
+    }
+    .mag-text {
+      margin: 10px 0;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .mag-date {
+      margin-top: auto;
+      font-size: 11px;
+      line-height: 1;
+      opacity: 0.6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mag-date span{
+      display: inline-block;
+      margin-left: 5px;
+    }
+    .mag-date span img {
+      display: block;
+      width: 100%;
+      opacity: 0.6;
+    }
+    .mag-btn {
+      width: 200px;
+      margin: auto;
+      text-align: center;
+      outline: 1px solid #fff;
+      border-radius: 25px;
+    }
+    .mag-btn a {
+      display: block;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 3;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mag-btn span{
+      display: inline-block;
+      margin-left: 5px;
+    }
+    .mag-btn span img {
+      display: block;
+      width: 100%;
+      opacity: 0.6;
+    }
+    /* footer */
+    .footer-container {
+        padding: 0px 40px;
+        margin-top: 150px;
+        margin-bottom: 50px;
+      }
+      .footer-law {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+      .footer-item {
+        margin-right: 15px;
+      }
+      .footer-item a{
+        text-decoration: none;
+        align-items: center;
+        padding: 5px 0;
+        font-size: 15px;
+        line-height: 1;
+        color: #fff;
+      }
+      .footer-social {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-trademark {
+        display: flex;
+        align-items: center;
+      }
+      .footer-trademark a {
+        display: block;
+        width: 85px;
+        opacity: 0.5;
+        margin-right: 25px;
+      }
+      .footer-trademark img {
+        display: block;
+        width: 100%;
+      }
+      .footer-trademark span {
+        display: block;
+        font-size: 12px;
+        line-height: 1;
+        opacity: 0.5;
+        color: #fff;
+      }
+      .footer-sns {
+        display: flex;
+        align-items: center;
+      }
+      .footer-sns span {
+        display: block;
+        font-size: 13px;
+        line-height: 1;
+        color: #fff;
+        margin-right: 20px;
+      }
+      .footer-sns a {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-left: 15px;
+      }
+      .footer-sns img {
+        display: block;
+        width: 100%;
+      }
+      /* button-CTA */
+      .btn-CTA {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 10;
+        display: block;
+        width: 200px;
+      }
+      .btn-CTA img {
+        display: block;
+        width: 100%;
+      }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header class="head-container">
+    <div class="head-logo">
+      <a href="#">
+        <img src="./image/logo_wh.svg" alt="logo">      
+      </a>
+    </div>
+    <ul class="head-nav">
+      <li><a href="#">Top</a></li>
+      <li><a href="#">開発ストーリー</a></li>
+      <li><a href="#">商品一覧</a></li>
+      <li><a href="#">ニュース</a></li>  
+      <li><a href="#">店舗情報</a></li>
+      <li>
+        <a href="#">
+          Magazine
+          <span>
+            <img src="./image/static.shared__nav-link_wh.svg" alt="">
+          </span>
+        </a>
+      </li> 
+    </ul>
+    <div class="head-login">
+      <li><a href="#">登入</a></li>
+      <li class="cart">
+        <a href="#">
+          <img src="./image/icon-cart.svg" alt="cart">
+        </a>
+        <span>0</span>
+      </li>
+    </div>
+  </header>
+  <!-- Banner-AD -->
+  <section class="banner-container">
+    <div class="banner-wrap">
+      <div class="banner-text">
+        <h3>
+          <img src="./image/banner-text-01.svg" alt="">
+        </h3>
+        <span>Vegan Friendly</span>
+      </div>
+      <div class="banner-pic">
+        <ul class="banner-list">
+          <li>
+           <div class="banner-list-1" style="background-image: url(./image/slide_1.webp);"></div>
+          </li>
+          <li>
+            <div class="banner-list-1" style="background-image: url(./image/slide_2.webp);"></div>
+          </li>
+          <li>
+            <div class="banner-list-1" style="background-image: url(./image/slide_3.webp);"></div>
+          </li>
+          <li>
+            <div class="banner-list-1" style="background-image: url(./image/slide_4.webp);"></div>
+          </li>
+          <li>
+            <div class="banner-list-1" style="background-image: url(./image/slide_5.webp);"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="banner-logo">
+      <img class="banner-logo-large" src="./image/logo_wh.svg" alt="">
+      <img class="banner-logo-small" src="./image/tagline.svg" alt="">
+    </div>
+    <span class="banner-roll">
+      <img src="./image/scrolling.svg" alt="">
+    </span>
+  </section>
+  <!-- About-FruOats -->
+  <section class="about-container">
+    <div class="about-bg-pic" style="background-image: url(./image/bg-about.webp);">
+      <h2>About FruOats</h2>
+      <div class="about-wrap">
+      <div class="about-text">
+        <h3>我慢しなくていい
+          <br>
+          キレイのためのおやつ
+        </h3>
+        <p>健康や美容への意識が高まるなか、<br>
+          なるべくヘルシーなおやつを選んだり、<br>
+          おやつを我慢する人が増えています。</p>
+        <p>私たちは、どなたでもおやつ時間を<br>
+          罪悪感なく楽しく過ごしていただけるよう、<br>
+          植物由来のシンプルな素材のみを厳選して<br>
+          FruOats（フルオーツ）を開発しました。</p>
+        <p>パーフードとして注目されているオートミールや<br>
+          チアシードのほか、おからやドライフルーツなどを使った、<br>
+          食物繊維・ビタミン・ミネラルたっぷりの<br>
+          グルテンフリークッキーです。</p>
+        <p>おいしさとキレイを両立させる、<br>
+          嬉しいおやつをどうぞ召し上がれ。</p>
+      </div>
+      </div>
+    </div>
+  </section>
+  <!-- banner-large -->
+  <section class="large-container" style="background-image: url(./image/bg-Furoats.webp);;">
+    <p class="">
+      Strawberry.Pistachio. Mango. Coconut. Apple. Cinnamon. Fig. Almond. Orange. Chocolate.
+    </p>
+  </section>
+  <!-- Feature -->
+  <section class="feature-container">
+    <h2>FruOats Feature</h2>
+    <div class="feature-list">
+      <ul class="feature-items">
+        <li class="item">
+          <div class="pic">
+            <img src="./image/img-feature-01.webp" alt="">
+          </div>
+          <div class="text">
+            <h3>植物由来の素材で<br>
+              からだの中からキレイに</h3>
+            <p>お菓子の材料によく使われる卵やバター、小麦粉、白砂糖（※）は使用せず、オートミール、おからパウダー、チアシード、アマニ、ドライフルーツ、米油など、原材料は全て植物由来の素材を使用しています。また、人工甘味料や保存料も使用せず、からだにやさしいクッキーに仕上げました。。
+              <br>（※ドライストロベリー、ドライマンゴー、ドライアップルには微量の白砂糖が含まれています。）</p>
+          </div>
+        </li>
+        <li class="item">
+          <div class="pic">
+            <img src="./image/img-feature-02.webp" alt="">
+          </div>
+          <div class="text">
+            <h3>3枚で1/2日分の食物繊維<br>
+              糖質も約47%OFF</h3>
+            <p>通常のクッキーと比べて栄養価は一目瞭然！低糖質で食物繊維がたっぷり。ほとんどの日本人が食物繊維不足で、20代~30代の男女で平均約6g不足しています。フルオーツならたった3枚(約40g)で、1日に必要な食物繊維の1/2が摂れます。これは、バナナ約10本相当分です。</p>
+          </div>
+        </li>
+        <li class="item">
+          <div class="pic">
+            <img src="./image/img-feature-03.webp" alt="">
+          </div>
+          <div class="text">
+            <h3>現役パティシエ監修により<br>
+              満足度95%※の美味しさを実現！</h3>
+            <p>美味しく食べていただくために、「クープ・デュ・モンド・ドゥ・ラ・パティスリー」をはじめとする、パティシエの国際大会で優勝経験のある中山和大シェフに監修して頂きました。美味しい健康食品を作ることの難しさを痛感しながらも、栄養素や素材などに一切妥協せず、美味しく作り上げるために幾度の試行錯誤を重ねました。
+              （※2021年9月調査 モニター41人）</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- story/promise -->
+  <section class="story-container">
+    <div class="story-bg" style="background-image:url(./image/bg-story.webp)">
+      <h2>Story / Promise</h2>
+      <div class="story-wrap">
+        <div class="story-text">
+          <h3>おいしさとキレイの
+            <br>両立を目指して
+          </h3>
+          <p>「おやつを我慢したくない」をきっかけにスタートしたFruOats(フルオーツ)の開発。ヘルシーと美味しさを両立させるために、通常使用される素材を使わずに、何十回もの試行錯誤を重ねました。
+          </p>
+          <div class="story-button">
+            <a href="#">
+              誕生ストーリーをみる
+            </a>
+          </div>
+        </div>
+        <div class="story-pic">
+          <img src="./image/img-story.webp" alt="story">
+        </div>
+      </div>
+      <p class="story-slogan">
+        Story. Promise. Story. Promise. Story. Promise. Story. Promise. Story. Promise. Story. Promise.
+      </p>
+    </div>
+  </section>
+  <!-- product -->
+  <section class="product-container">
+    <h2 class="product-title">Product</h2>
+    <div class="product-wrap">
+      <div class="product-special">
+        <div class="product-pic">
+          <img src="./image/product-01x.webp" alt="product">
+        </div>
+        <div class="product-text">
+          <p class="tag">
+            オートミール × おからの
+            <br>グルテンフリークッキー
+          </p>
+          <h3>
+            FruOats
+            <span class="rubi">フルオーツ</span>
+          </h3>
+          <p class="price">
+            ¥3,330
+            <span class="tax">税込</span>
+            <span class="set">30枚入り</span>
+          </p>
+          <div class="btn">
+            <a class="" href="#">
+              商品詳細をみる
+            </a>
+          </div>
+          
+        </div>
+      </div>
+      <div class="product-list">
+        <a ref="#">
+          <div class="list-pic">
+            <img src="./image/img-product-item-01.jpg" alt="">
+          </div>
+          <div class="list-text">
+            <h3>【先着300箱限定】オートミール×おからのグルテンフリー
+              クッキー『FruOats（フルオーツ）』レーズン × パンプキ
+              ンシード2種セット 30枚入り
+            </h3>
+            <p>
+              ¥3,330
+              <span class="list-tax">税込</span>
+            </p>
+          </div>
+        </a>
+        <a hf="#">
+          <div class="list-pic">
+            <img src="./image/img-product-item-02.jpg" alt="">
+          </div>
+          <div class="list-text">
+            <h3>【紙袋付ギフトBOX】オートミール×おからのグルテンフ
+              リークッキー7種セット 14枚入り
+           </h3>
+           <p>
+            ¥2,480
+             <span class="list-tax">税込</span>
+           </p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="list-pic">
+            <img src="./image/img-product-item-03.jpg" alt="">
+          </div>
+          <div class="list-text">
+            <h3>
+              【選べるフレーバーセット】オートミール×おからのグル
+              テンフリークッキー30枚入り
+            </h3>
+            <p>
+              ¥3,330
+              <span class="list-tax">税込</span>
+            </p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="list-pic">
+            <img src="./image/img-product-item-04.jpg" alt="">
+          </div>
+          <div class="list-text">
+            <h3>
+              オートミール×おからのグルテンフリークッキー『FruOats
+              （フルオーツ）』6種セット 30枚入り
+            </h3>
+            <p>
+              ¥3,218
+              <span class="list-tax">税込</span>
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="product-link">
+        <a class="" href="#">
+          Product All
+        </a>
+        <span>
+          <img src="./image/static.shared__nav-arrow-right_wh.svg" alt="">
+        </span>
+      </div>
+    </div>
+  </section>
+  <!-- news -->
+  <section class="news-container">
+    <h2>News</h2>
+    <div class="news-wrap">
+      <a class="news-list" href="#">
+        <p>2023.09.18</p>
+        <h3 class="news-headline">
+        【プレゼント企画】100％植物性のプロテインとグルテンフリークッキーが当たるSNSコラボキャンペーンを実施！
+        </h3>
+        <span class="news-link">
+          <img src="./image/arrow-right_wh.svg" alt="">
+        </span>
+      </a>
+      <a class="news-list" href="#">
+        <p>2023.09.08</p>
+        <h3 class="news-headline">
+          累計販売枚数100万枚を突破しました！2023年9月6日より期間限定全品10%OFFキャンペーンを開催
+        </h3>
+        <span class="news-link">
+          <img src="./image/arrow-right_wh.svg" alt="">
+        </span>
+      </a>
+      <a class="news-list" href="#">
+        <p>2023.08.18</p>
+        <h3 class="news-headline">
+          【重要】8/23より価格改定&システムメンテナンスのお知らせ
+        </h3>
+        <span class="news-link">
+          <img src="./image/arrow-right_wh.svg" alt="">
+        </span>
+      </a>
+      <div class="news-all">
+        <a class="" href="#">
+          News All
+        </a>
+        <span>
+          <img src="./image/static.shared__nav-arrow-right_wh.svg" alt="">
+        </span>
+      </div>
+    </div>
+  </section>
+  <!-- shop -->
+  <section class="shop-container">
+    <div class="shop-wrap">
+      <div class="shop-text">
+        <h2 class="shop-title">Shop</h2>
+        <div class="shop-detail">
+          <h3>FruOats FACTORY</h3>
+          <p class="">
+              2022年4月25日(月)よりグランドオープン
+              <br>
+              <b>営業時間</b>
+              <br>月~日（水曜除く）
+              11:00~17:00
+              <br>
+              <b>店舗所在地</b>
+              <br>東京都江東区扇橋1丁目12-20
+          </p>
+          <div class="shop-btn">
+            <a class="" href="#">
+              もっと詳しく
+            </a>
+          </div>    
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- media -->
+  <section class="media-container">
+    <div class="media-wrap">
+      <h2 class="media-title">Media</h2>
+      <div class="media-list">
+        <a href="#">
+          <img src="./image/media-01.webp" alt="">
+        </a>
+        <a href="#">
+          <img src="./image/media-02.jpeg" alt="">
+        </a>
+        <a href="#">
+          <img src="./image/media-03.webp" alt="">
+        </a>
+        <a href="#">
+          <img src="./image/media-04.png" alt="">
+        </a>
+        <a href="#">
+          <img src="./image/media-05.webp" alt="">
+        </a>
+        <a href="#">
+          <img src="./image/media-06.png" alt="">
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- magazine -->
+  <section class="mag-container">
+    <div class="mag-title">Magazine</div>
+    <div class="mag-wrap">
+      <ul class="mag-list">
+        <li class="mag-item">
+          <a href="#" class="">
+            <div class="mag-pic">
+              <img src="./image/magazine-01.webp" alt="">
+            </div>
+            <div class="mag-text">
+              FruOatsのフレーバー別に合うコーヒーって？
+              清澄白河カフェ「Kraft Coffee」のバリスタに
+              インタビューしました！
+            </div>
+            <div class="mag-date">
+              2022.12.02
+              <span>
+                <img src="./image/nav-link_bk.svg" alt="">
+              </span>
+            </div>
+          </a>
+        </li>
+        <li class="mag-item">
+          <a href="#" class="">
+            <div class="mag-pic">
+              <img src="./image/magazine-02.webp" alt="">
+            </div>
+            <div class="mag-text">
+              ヴィーガン食と腸活の関係って？
+            </div>
+            <div class="mag-date">
+              2022.10.13
+              <span>
+                <img src="./image/nav-link_bk.svg" alt="">
+              </span>
+            </div>
+          </a>
+        </li>
+        <li class="mag-item">
+          <a href="#" class="">
+            <div class="mag-pic">
+              <img src="./image/magazine-03.jpg" alt="">
+            </div>
+            <div class="mag-text">
+              ヴィーガンで栄養不足を防ぐには？不足しがちな
+              栄養素とおすすめの食材
+            </div>
+            <div class="mag-date">
+              2022.09.19
+              <span>
+                <img src="./image/nav-link_bk.svg" alt="">
+              </span>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="mag-btn">
+        <a href="#">
+          FruOats MAGAZINE
+          <span>
+            <img src="./image/static.shared__nav-link_wh.svg" alt="">
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- footer -->
+  <footer class="footer-container">
+    <ul class="footer-law">
+      <li class="footer-item">
+        <a href="#">よくある質問</a>
+      </li>
+      <li class="footer-item">
+        <a href="#">お問い合わせ</a>
+      </li>
+      <li class="footer-item">
+        <a href="#">利用規約</a>
+      </li>
+      <li class="footer-item">
+        <a href="#">プライバシーポリシー</a>
+      </li>
+      <li class="footer-item">
+        <a href="">特定商取引法に基づく表記</a>
+      </li>
+    </ul>
+    <ul class="footer-social">
+      <li class="footer-trademark">
+        <a href="#">
+          <img src="./image/logo_wh.svg" alt="FruOats">
+        </a>
+        <span>©2022 FruOats</span>
+      </li>
+      <li class="footer-sns">
+        <span>Official Account</span>
+        <a href="#">
+          <img src="./image/twitter.svg" alt="Twitter">
+        </a>
+        <a href="#">
+          <img src="./image/instagram.svg" alt="Instagram">
+        </a>
+      </li>
+    </ul>
+  </footer> 
+  <!-- button-CTA -->
+  <a class="btn-CTA" href="#">
+    <img src="./image/btn-cta.webp" alt="go-fruoats">
+  </a>
+</body>
+</html>
